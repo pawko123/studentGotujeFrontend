@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { TextField, Button, Typography, Container, Box } from '@mui/material';
 
 function Login() {
@@ -19,7 +18,7 @@ function Login() {
     setError(null);
 
     try {
-        const response = await axios.post('http://localhost:8080/auth/login', 
+        const response = await axios.post('/api/auth/login', 
             { email, password }, 
             { withCredentials: true }
         );

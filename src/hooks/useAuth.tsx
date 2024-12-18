@@ -8,7 +8,7 @@ const useAuth = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/auth/user', { withCredentials: true })
+      .get('/api/auth/user', { withCredentials: true })
       .then((res) => {
         if (res.status === 200) {
           const { id, email, username, appUserRole, enabled } = res.data;

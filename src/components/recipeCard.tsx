@@ -21,7 +21,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({recipe}) => {
                 <CardMedia
                     component="img"
                     height="200"
-                    image={`http://localhost:8080/files/${firstImage.imagePath}`} // Assuming the image path is correct
+                    image={`/api/files/${firstImage.imagePath}`} // Assuming the image path is correct
                     alt={recipe.name}
                 />
                 )}

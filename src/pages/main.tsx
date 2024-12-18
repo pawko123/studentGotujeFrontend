@@ -12,7 +12,7 @@ function Main() {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/recipe/get/recipes')
+        axios.get('/api/recipe/get/recipes')
             .then((res) => {
                 if(res.status === 200){
                     setRecipes(res.data);

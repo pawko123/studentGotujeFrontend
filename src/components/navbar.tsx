@@ -36,7 +36,7 @@ const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
     };
 
     const handleLogout = () => {
-        axios.post('http://localhost:8080/auth/logout', {}, { withCredentials: true })
+        axios.post('/api/auth/logout', {}, { withCredentials: true })
         .then((res) => {
             if(res.status === 200){
                 setUser(null);

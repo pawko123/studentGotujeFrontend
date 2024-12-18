@@ -13,7 +13,7 @@ function RecipePage (){
     const [recipe, setRecipe] = useState<Recipe | null>(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/recipe/get/recipe?id=${id}`)
+        axios.get(`/api/recipe/get/recipe?id=${id}`)
             .then((res) => {
                 if(res.status === 200){
                     console.log(res.data);
@@ -79,7 +79,7 @@ function RecipePage (){
                     <CardMedia
                         component="img"
                         height="400"
-                        image={`http://localhost:8080/files/${recipe.images[index].imagePath}`}
+                        image={`/api/files/${recipe.images[index].imagePath}`}
                         alt="Recipe Image"
                         sx={{ objectFit: 'cover' }}
                     />

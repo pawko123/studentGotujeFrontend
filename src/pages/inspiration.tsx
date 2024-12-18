@@ -12,7 +12,7 @@ function Inspiration() {
     const [supperRecipes, setSupperRecipes] = useState<Recipe[]>([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/recipe/get/randomRecipes?type=BREAKFAST')
+        axios.get('/api/recipe/get/randomRecipes?type=BREAKFAST')
             .then((res) => {
                 if(res.status === 200){
                     setBreakfastRecipes(res.data);
@@ -23,7 +23,7 @@ function Inspiration() {
             .catch((err) => {
                 console.log(err);
             });
-        axios.get('http://localhost:8080/recipe/get/randomRecipes?type=DINNER')
+        axios.get('/api/recipe/get/randomRecipes?type=DINNER')
             .then((res) => {
                 if(res.status === 200){
                     setDinnerRecipes(res.data);
@@ -34,7 +34,7 @@ function Inspiration() {
             .catch((err) => {
                 console.log(err);
             });
-        axios.get('http://localhost:8080/recipe/get/randomRecipes?type=SUPPER')
+        axios.get('/api/recipe/get/randomRecipes?type=SUPPER')
             .then((res) => {
                 if(res.status === 200){
                     setSupperRecipes(res.data);
