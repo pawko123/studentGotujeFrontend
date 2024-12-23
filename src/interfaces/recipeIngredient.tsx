@@ -1,7 +1,7 @@
 import Ingredient from "./ingredient";
 
 interface RecipeIngredient {
-    id: number;
+    id?: number;
     ingredient: Ingredient;
     quantity: number;
     quantityType: string;

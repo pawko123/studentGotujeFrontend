@@ -18,8 +18,9 @@ const useAuth = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
-        setUser(null); // Handle the error by clearing the user
+        if(err.response.status === 401){
+          setUser(null);
+        }
       });
   }, []);
 

@@ -2,6 +2,8 @@ import React ,{useState} from 'react';
 import Recipe from '../interfaces/recipe';
 import { Card, CardMedia, CardContent, Typography, Box, Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
+//@ts-ignore
+import RecipeDefaultImage  from '../images/recipe.png';
 
 interface RecipeCardProps {
     recipe: Recipe;
@@ -17,11 +19,18 @@ const RecipeCard: React.FC<RecipeCardProps> = ({recipe}) => {
         <Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none' }}>
             <Card sx={{ width: '93%' , margin: 2 }}>
                 {/* Display first image if exists */}
-                {firstImage && (
+                {firstImage ? (
                 <CardMedia
                     component="img"
                     height="200"
                     image={`/api/files/${firstImage.imagePath}`} // Assuming the image path is correct
+                    alt={recipe.name}
+                />
+                ):(
+                <CardMedia
+                    component="img"
+                    height="200"
+                    image={RecipeDefaultImage}
                     alt={recipe.name}
                 />
                 )}
@@ -34,11 +43,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({recipe}) => {
 
                     {/* Average Rating */}
                     <Box display="flex" alignItems="center">
-                    <Rating value={userRating} precision={1} 
-                    onChange={(event, newValue) => {
-                        setUserRating(newValue || 0);
-                    }}
-                    />
+                    <Rating value={userRating} precision={1} readOnly />
                     <Typography variant="body2" color="text.secondary" sx={{ marginLeft: 1 }}>
                         {userRating.toFixed(1)}
                     </Typography>

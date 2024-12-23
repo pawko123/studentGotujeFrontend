@@ -7,6 +7,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import AddIcon from '@mui/icons-material/Add';
 //@ts-ignore
 import logo from "../pages/logo.svg";
 import { Link,useNavigate } from "react-router-dom";
@@ -40,10 +41,15 @@ const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
         .then((res) => {
             if(res.status === 200){
                 setUser(null);
+                navigate("/");
             }
         });
         handleMenuClose();
     };
+
+    const redirectToRecipeCreateForm = () => {
+        navigate("/recipe/create")
+    }
 
     return (
         <AppBar position="static" color="primary">
@@ -66,9 +72,23 @@ const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
             {/* User Settings */}
             {/* username */}
             {user && (
-            <Typography variant="button">
-                {user.username}
-            </Typography>
+                <>
+                {user.appUserRole === "ADMIN" && (
+                    <IconButton
+                        size="large"
+                        aria-label="link to form"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="false"
+                        onClick={redirectToRecipeCreateForm}
+                        color="inherit"
+                    >
+                        <AddIcon />
+                    </IconButton>
+                )}
+                <Typography variant="button">
+                    {user.username}
+                </Typography>
+                </>
             )}
 
             {/* Account Menu */}
@@ -89,7 +109,7 @@ const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
             >
                 {user ? (
                 <>
-                    <MenuItem onClick={handleMenuClose}>Your Account</MenuItem>
+                    <MenuItem onClick={()=>{navigate("/userPage")}}>Your Account</MenuItem>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </>
                 ) : (
