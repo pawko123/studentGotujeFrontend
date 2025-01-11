@@ -83,13 +83,13 @@ function Login() {
         {/* Optionally, add a "Sign Up" link */}
         <Box sx={{ marginTop: 2 }}>
           <Typography variant="body2" color="textSecondary">
-            Don't have an account? <a href="/signup" style={{ textDecoration: 'none' }}>Sign Up</a>
+            Don't have an account? <a href="/register" style={{ textDecoration: 'none' }}>Sign Up</a>
           </Typography>
         </Box>
         {/* Optionally, add a "Forgot Password" link */}
         <Box sx={{ marginTop: 1 }}>
           <Typography variant="body2" color="textSecondary">
-            <a href="/forgot-password" style={{ textDecoration: 'none' }}>Forgot Password</a>
+            <a href="/resetPasswordEmail" style={{ textDecoration: 'none' }}>Forgot Password</a>
           </Typography>
         </Box>
       </Box>
