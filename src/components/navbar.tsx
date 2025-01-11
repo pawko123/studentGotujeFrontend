@@ -66,6 +66,10 @@ const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
             Inspiration
             </Button>
 
+            <Button color="inherit" href="/top10">
+            Top 10
+            </Button>
+
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             </Typography>
 

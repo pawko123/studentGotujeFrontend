@@ -7,6 +7,7 @@ import RecipePage from './pages/recipePage.tsx';
 import CreateForm from './pages/createForm.tsx';
 import UserPage from './pages/userpage.tsx';
 import Register from './pages/register.tsx';
+import Top10Recipes from './pages/top10.tsx';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
@@ -62,6 +63,7 @@ function App() {
               <Route path="recipe/:id" element={<RecipePage />} />
               <Route path='userPage' element={<UserPage/>}/>
               <Route path='recipe/create' element={<CreateForm/>}/>
+              <Route path='top10' element={<Top10Recipes/>}/>
               <Route path="*" element={<h1>Not Found</h1>} />
             </Route>
           </Routes>

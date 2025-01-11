@@ -217,7 +217,9 @@ function RecipePage (){
                     } 
                 disabled={loading}
             />
-
+            {/* Recipe Images */}
+            {(recipe.images.length > 0 || recipe.images === undefined) ?
+                <>
             <Box display="flex" justifyContent="center" alignItems="center" position="relative">
                 <Card sx={{ maxWidth: 600, position: 'relative' }}>
                     {/* Left Button */}
@@ -273,7 +275,11 @@ function RecipePage (){
                     {index + 1} / {recipe.images.length}
                 </Typography>
             </Box>
+            </> :
+            <Typography variant="h5">No images</Typography>
+            }   
             </>
+        
         }
         {/* Recipe Ingredients */}
         {recipe && 
