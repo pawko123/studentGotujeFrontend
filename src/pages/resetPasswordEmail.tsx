@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Typography, Box, CircularProgress } from '@mui/material';
 
+/**
+ * ResetPasswordEmailPage component allows users to request a password reset email.
+ * 
+ * This component provides a form where users can enter their email address and submit
+ * a request to receive a password reset email. It handles the form submission, displays
+ * loading state, and shows success or error messages based on the response from the server.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <ResetPasswordEmailPage />
+ * )
+ * 
+ * @returns {JSX.Element} The rendered component.
+ */
 function ResetPasswordEmailPage(){
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');

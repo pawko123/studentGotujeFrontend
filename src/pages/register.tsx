@@ -11,6 +11,27 @@ import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 
+/**
+ * The Register component renders a registration form with fields for username, email, password, and repeat password.
+ * It includes client-side validation and integrates with Google reCAPTCHA for bot protection.
+ * 
+ * State:
+ * - `username`: The username input value.
+ * - `email`: The email input value.
+ * - `password`: The password input value.
+ * - `repeatPassword`: The repeat password input value.
+ * - `error`: Error message to display if validation or registration fails.
+ * - `success`: Success message to display if registration is successful.
+ * 
+ * Methods:
+ * - `handleSubmit`: Handles form submission, performs client-side validation, executes reCAPTCHA, and sends registration data to the server.
+ * 
+ * Dependencies:
+ * - `useGoogleReCaptcha`: Hook to execute Google reCAPTCHA.
+ * - `axios`: HTTP client for making API requests.
+ * 
+ * @returns {JSX.Element} The rendered registration form component.
+ */
 function Register() {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");

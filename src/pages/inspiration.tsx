@@ -5,6 +5,20 @@ import useAuth from "../hooks/useAuth.tsx";
 import Recipe from "../interfaces/recipe.tsx";
 import ListOf5Recipes from "../components/listOf5Recipes.tsx";
 
+/**
+ * The `Inspiration` component fetches and displays random recipes for breakfast, dinner, and supper.
+ * It uses the `useAuth` hook to get the current user and the `useState` hook to manage the state of the recipes.
+ * The `useEffect` hook is used to fetch the recipes from the API when the component mounts.
+ * 
+ * The component renders a `Navbar` component with the user information and three `ListOf5Recipes` components,
+ * each displaying a list of recipes for breakfast, dinner, and supper respectively.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <Inspiration />
+ * )
+ */
 function Inspiration() {
     const [user, setUser] = useAuth();
     const [breakfastRecipes, setBreakfastRecipes] = useState<Recipe[]>([]);

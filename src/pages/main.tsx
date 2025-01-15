@@ -8,6 +8,27 @@ import RecipeCard from '../components/recipeCard.tsx';
 import { Grid,Stack,Chip,Button,Typography,Box,TextField,FormControlLabel,Checkbox,FormControl,InputLabel,Select,MenuItem } from '@mui/material';
 import Tag from '../interfaces/tag.tsx';
 
+/**
+ * The Main component is the primary page for displaying and searching recipes.
+ * It fetches initial data for recipes, tags, and recipe types from the server
+ * and allows users to search for recipes based on various criteria.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @example
+ * <Main />
+ *
+ * @remarks
+ * This component uses several hooks:
+ * - `useAuth` to get the current user and set user state.
+ * - `useState` to manage state for recipes, tags, recipe types, search criteria, and sorting order.
+ * - `useEffect` to fetch initial data from the server.
+ *
+ * The component includes a search form with fields for recipe name, type, and tags,
+ * as well as a checkbox to sort results by rating. The search results are displayed
+ * as a grid of RecipeCard components.
+ */
 function Main() {
     const [user, setUser] = useAuth();
     const [recipes, setRecipes] = useState<Recipe[]>([]);

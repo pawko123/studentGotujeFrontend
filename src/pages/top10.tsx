@@ -6,6 +6,23 @@ import Recipe from '../interfaces/recipe.tsx';
 import Navbar from '../components/navbar.tsx';
 import useAuth from '../hooks/useAuth.tsx';
 
+/**
+ * Component that fetches and displays the top 10 recipes based on their average rating.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <Top10Recipes />
+ * )
+ * 
+ * @returns {JSX.Element} The rendered component.
+ * 
+ * @remarks
+ * This component uses the `useEffect` hook to fetch the recipes from the API when the component mounts.
+ * It sorts the recipes by their average rating in descending order and selects the top 10 recipes.
+ * 
+ * @returns {JSX.Element} The rendered component.
+ */
 function Top10Recipes(){
     const [recipes, setRecipes] = useState<Recipe[]>([]);
     const [user, setUser] = useAuth();

@@ -7,6 +7,37 @@ import Navbar from "../components/navbar.tsx";
 import { Typography,Grid } from "@mui/material";
 import RecipeCard from "../components/recipeCard.tsx";
 
+/**
+ * UserPage component fetches and displays user information and their favorite recipes.
+ * 
+ * This component performs the following tasks:
+ * - Fetches the authenticated user's data from the server.
+ * - Redirects to the login page if the user is not authenticated.
+ * - Fetches and displays the user's favorite recipes.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <UserPage />
+ * )
+ * 
+ * @returns {JSX.Element} The rendered component.
+ * 
+ * @remarks
+ * This component uses the `useEffect` hook to fetch user data and favorite recipes when the component mounts.
+ * It also uses the `useNavigate` hook from `react-router-dom` to handle navigation.
+ * @hook
+ * @name useEffect
+ * @description Fetches user data and favorite recipes when the component mounts.
+ * 
+ * @hook
+ * @name useState
+ * @description Manages the state of the user, loading status, and favorite recipes.
+ * 
+ * @hook
+ * @name useNavigate
+ * @description Handles navigation to the login page if the user is not authenticated.
+ */
 function UserPage() {
     const [user , setUser] = useState<User | null>(null);
     const [loadingUser, setLoadingUser] = useState<boolean>(true);

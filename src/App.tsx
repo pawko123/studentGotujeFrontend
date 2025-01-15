@@ -14,6 +14,17 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import ResetPasswordEmailPage from './pages/resetPasswordEmail.tsx';
 import ResetPasswordPage from './pages/resetPasswordPage.tsx';
 
+/**
+ * The main application component that sets up the theme, routing, and Google reCAPTCHA provider.
+ *
+ * This component:
+ * - Determines the user's preferred color scheme (dark or light mode) and sets up a theme accordingly.
+ * - Listens for changes in the system's color scheme preference and updates the theme dynamically.
+ * - Provides the Google reCAPTCHA context to the application.
+ * - Sets up the application's routing using React Router.
+ *
+ * @returns {JSX.Element} The main application component.
+ */
 function App() {
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 

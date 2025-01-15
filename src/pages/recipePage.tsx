@@ -9,6 +9,33 @@ import { useNavigate } from 'react-router-dom';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import { Card,Rating,CardMedia,Box,Button,Typography,CardContent,Chip, IconButton, TextField } from '@mui/material';
 
+/**
+ * RecipePage component fetches and displays a recipe based on the ID from the URL parameters.
+ * It allows users to view recipe details, images, ingredients, tags, and comments.
+ * Users can also rate the recipe, mark it as a favorite, and add comments.
+ *
+ * @component
+ * @example
+ * return (
+ *   <RecipePage />
+ * )
+ *
+ * @returns {JSX.Element} The rendered RecipePage component.
+ *
+ * @remarks
+ * This component uses several hooks:
+ * - `useParams` to get the recipe ID from the URL.
+ * - `useAuth` to get the current user and authentication status.
+ * - `useState` to manage local state for the recipe, user rating, favorite status, etc.
+ * - `useEffect` to fetch data from the API when the component mounts or dependencies change.
+ *
+ * @function
+ * @name RecipePage
+ *
+ * @param {void}
+ *
+ * @returns {JSX.Element} The rendered RecipePage component.
+ */
 function RecipePage (){
     const {id} = useParams<{id:string}>();
     const [user, setUser] = useAuth();

@@ -4,6 +4,35 @@ import { TextField, Button, Typography, Box, CircularProgress } from '@mui/mater
 import { useLocation,useNavigate } from 'react-router-dom';
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
+/**
+ * ResetPasswordPage component allows users to reset their password.
+ * 
+ * This component handles the following:
+ * - Capturing and validating new password and confirmation password inputs.
+ * - Displaying appropriate messages for various states (e.g., passwords do not match, invalid token, etc.).
+ * - Integrating with Google reCAPTCHA for bot protection.
+ * - Making API calls to verify reCAPTCHA and reset the password.
+ * - Redirecting users to the login page upon successful password reset.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered ResetPasswordPage component.
+ * 
+ * @example
+ * // Usage example:
+ * <ResetPasswordPage />
+ * 
+ * @remarks
+ * This component uses the following hooks:
+ * - `useState` to manage password, repeatPassword, message, and loading states.
+ * - `useLocation` to access the query parameters from the URL.
+ * - `useNavigate` to programmatically navigate to the login page.
+ * - `useGoogleReCaptcha` to execute the reCAPTCHA verification.
+ * - `useEffect` to check the validity of the token on component mount.
+ * 
+ * @requires axios for making HTTP requests.
+ * @requires @mui/material components for UI elements.
+ * @requires react-google-recaptcha-v3 for reCAPTCHA integration.
+ */
 function ResetPasswordPage(){
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');

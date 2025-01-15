@@ -3,6 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { TextField, Button, Typography, Container, Box } from '@mui/material';
 
+/**
+ * Login component renders a login form with email and password fields.
+ * It handles form submission, performs login via an API call, and navigates to the home page upon successful login.
+ * Displays error messages for invalid credentials or other errors.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Login />
+ * )
+ *
+ * @returns {JSX.Element} The rendered login form component.
+ */
 function Login() {
     const navigate = useNavigate();
   

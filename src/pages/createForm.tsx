@@ -8,6 +8,66 @@ import Tag from "../interfaces/tag.tsx";
 import RecipeIngredient from "../interfaces/recipeIngredient.tsx";
 import { Typography,Box,TextField,MenuItem,Autocomplete, Button,Stack } from "@mui/material";
 
+/**
+ * The CreateForm component is responsible for rendering a form that allows users to create a new recipe.
+ * It includes fields for recipe name, description, type, tags, ingredients, and images.
+ * The component fetches user data, ingredients, and tags from the server and handles form submission.
+ * 
+ * @component
+ * 
+ * @example
+ * return (
+ *   <CreateForm />
+ * )
+ * 
+ * @returns {JSX.Element} The rendered CreateForm component.
+ * 
+ * @remarks
+ * - The component uses React hooks such as useState and useEffect for state management and side effects.
+ * - It performs form validation before submitting the data to the server.
+ * - The form submission is handled by the sendRecipe function, which sends a POST request to the server with the form data.
+ * - The component redirects the user to the login page if they are not authenticated or to the home page if they do not have admin privileges.
+  * It manages the state of the form inputs, handles form submission, and performs validation checks.
+ * 
+ * @component
+ * 
+ * @returns {JSX.Element} The rendered CreateForm component.
+ * 
+ * @example
+ * <CreateForm />
+ * 
+ * @remarks
+ * - The component fetches user information, ingredients, and tags from the server when it mounts.
+ * - If the user is not authenticated or does not have the "ADMIN" role, they are redirected to the login or home page.
+ * - The form includes fields for recipe name, description, type, tags, ingredients, and images.
+ * - The form performs validation checks before submission and displays errors if any fields are invalid.
+ * 
+ * @function
+ * @name CreateForm
+ * 
+ * @state {User|null} user - The current authenticated user.
+ * @state {boolean} loadingUser - Whether the user data is still loading.
+ * @state {Ingredient[]} ingredients - The list of available ingredients.
+ * @state {Tag[]} tags - The list of available tags.
+ * @state {string} name - The name of the recipe.
+ * @state {string} description - The description of the recipe.
+ * @state {string} type - The type of the recipe (e.g., BREAKFAST, DINNER, SUPPER).
+ * @state {Tag[]} userTags - The list of tags selected by the user.
+ * @state {RecipeIngredient[]} userIngredients - The list of ingredients added by the user.
+ * @state {File[]} images - The list of images uploaded by the user.
+ * @state {string[]} formErrors - The list of validation errors in the form.
+ * 
+ * @method fetchUser - Fetches the current authenticated user from the server.
+ * @method fetchIngredients - Fetches the list of available ingredients from the server.
+ * @method fetchTags - Fetches the list of available tags from the server.
+ * @method handleAddTag - Adds a new tag to the user's selected tags.
+ * @method handleRemoveTag - Removes a tag from the user's selected tags.
+ * @method handleTagChange - Updates a tag in the user's selected tags.
+ * @method handleAddIngredient - Adds a new ingredient to the user's selected ingredients.
+ * @method handleRemoveIngredient - Removes an ingredient from the user's selected ingredients.
+ * @method handleIngredientChange - Updates an ingredient in the user's selected ingredients.
+ * @method sendRecipe - Handles form submission, performs validation, and sends the recipe data to the server.
+ */
 function CreateForm(){
 
     const [user,setUser] = useState<User|null>(null);

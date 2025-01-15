@@ -19,6 +19,24 @@ interface NavbarProps {
     setUser: (user:User|null) => void;
 }
 
+/**
+ * Navbar component that displays the navigation bar with links and user settings.
+ * 
+ * @component
+ * @param {NavbarProps} props - The props for the Navbar component.
+ * @param {object} props.user - The current user object.
+ * @param {function} props.setUser - Function to update the current user state.
+ * 
+ * @returns {JSX.Element} The rendered Navbar component.
+ * 
+ * @example
+ * <Navbar user={user} setUser={setUser} />
+ * 
+ * @remarks
+ * - The component uses Material-UI components such as AppBar, Toolbar, Typography, Button, IconButton, and Menu.
+ * - The component handles user login and logout, and navigation to different routes.
+ * - If the user is an admin, an additional button to create a recipe is displayed.
+ */
 const Navbar:React.FC<NavbarProps> = ({ user, setUser }) =>{
     const [anchorEl, setAnchorEl] = useState(null);
     const navigate = useNavigate();
